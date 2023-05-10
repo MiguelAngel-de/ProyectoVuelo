@@ -23,7 +23,11 @@ public class GestionVuelo {
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
     }
     public void modificarVuelo(){
-        
+        System.out.println("introduzca la hora que desea modificar: ");
+        int horaModificar=leer.nextInt();
+        LocalDateTime dateTimeModifit = 
+        LocalDateTime.ofEpochSecond(horaModificar, 0, ZoneOffset.UTC);
+        colaRespaldo.offer(new Vuelo( dateTimeModifit ));
     }
 
 
