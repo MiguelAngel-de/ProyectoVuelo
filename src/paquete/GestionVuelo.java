@@ -1,6 +1,9 @@
 package paquete;
 import java.util.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 public class GestionVuelo {
     PriorityQueue<Vuelo> colaVuelo = new PriorityQueue<>();
    PriorityQueue<Vuelo> colaRespaldo = new PriorityQueue<>();
@@ -10,6 +13,7 @@ public class GestionVuelo {
     String origenVuelo;
     String destinoVuelo;
     String horaSalida;
+    String fechaSalida;
     public void agregarVuelo(){
         System.out.println("ingrese la ID del vuelo: ");
          nVuelo=leer.nextInt();
@@ -18,19 +22,25 @@ public class GestionVuelo {
          origenVuelo=leer.nextLine();
         System.out.println("ingrese el destino del vuelo: ");
          destinoVuelo=leer.nextLine();
-        System.out.println("ingrese la hora estimada de salida: ");
+         System.out.println("introduzca la hora (HH:MM:SS)");
         horaSalida=leer.nextLine();
+        System.out.println("introduzca la fecha(dd-MM-yyy): ");
+        fechaSalida=leer.nextLine();
         leer.nextLine();
-      LocalDateTime dateTime = 
-          LocalDateTime.parse(horaSalida);
+        LocalDateTime dateTime= LocalDateTime.of(LocalDate.parse(fechaSalida, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaSalida, DateTimeFormatter.ofPattern("HH:MM:SS")));
+      
         colaVuelo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
     }
     public void modificarVuelo(){
-        System.out.println("introduzca la hora que desea modificar: ");
+     System.out.println("introduzca la hora (HH:MM:SS)");
         String horaModificar=leer.nextLine();
-        LocalDateTime dateTimeModifit = LocalDateTime.parse(horaModificar);
-        
+        leer.nextLine();
+        System.out.println("introduzca la fecha(dd-MM-yyy): ");
+       
+        String fechaModificar=leer.nextLine();
+        LocalDateTime dateTimeModifit= LocalDateTime.of(LocalDate.parse(fechaModificar, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaModificar, DateTimeFormatter.ofPattern("HH:MM:SS")));
+   
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTimeModifit ));
     }
 
