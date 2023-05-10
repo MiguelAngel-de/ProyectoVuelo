@@ -1,7 +1,6 @@
 package paquete;
 import java.util.*;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 public class GestionVuelo {
     PriorityQueue<Vuelo> colaVuelo = new PriorityQueue<>();
    PriorityQueue<Vuelo> colaRespaldo = new PriorityQueue<>();
