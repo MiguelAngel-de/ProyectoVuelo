@@ -10,7 +10,7 @@ public class GestionVuelo {
     int nVuelo;
     String origenVuelo;
     String destinoVuelo;
-    int horaSalida;
+    String horaSalida;
     public void agregarVuelo(){
         System.out.println("ingrese la ID del vuelo: ");
          nVuelo=leer.nextInt();
@@ -20,20 +20,21 @@ public class GestionVuelo {
         System.out.println("ingrese el destino del vuelo: ");
          destinoVuelo=leer.nextLine();
         System.out.println("ingrese la hora estimada de salida: ");
-        horaSalida=leer.nextInt();
+        horaSalida=leer.nextLine();
+        leer.nextLine();
       LocalDateTime dateTime = 
-          LocalDateTime.ofEpochSecond(horaSalida, 0, ZoneOffset.UTC);
+          LocalDateTime.parse(horaSalida);
         colaVuelo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
     }
     public void modificarVuelo(){
         System.out.println("introduzca la hora que desea modificar: ");
-        int horaModificar=leer.nextInt();
-        LocalDateTime dateTimeModifit = 
-        LocalDateTime.ofEpochSecond(horaModificar, 0, ZoneOffset.UTC);
+        String horaModificar=leer.nextLine();
+        LocalDateTime dateTimeModifit = LocalDateTime.parse(horaModificar);
+        
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTimeModifit ));
     }
-    
+
 
 
 }
