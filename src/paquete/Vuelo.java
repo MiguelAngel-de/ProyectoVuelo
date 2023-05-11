@@ -41,6 +41,10 @@ public class Vuelo implements Comparable<Vuelo> {
           return  this. hSalida.compareTo(vuelo.getHsalida());
          
        }
+@Override
+public String toString() {
+    return "Vuelo [numero de vuelo=" + n_vuelo + ", origen=" + origen + ", destino=" + destino + ", fecha y hora de Salida=" + hSalida + "]";
+}
 
 
 
