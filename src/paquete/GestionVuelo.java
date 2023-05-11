@@ -46,6 +46,11 @@ public class GestionVuelo {
     public void eliminarVuelo(){
         System.out.println("el vuelo eliminado es: "+colaVuelo.poll());
     }
+    public void mostrarVulos(){
+        while(!colaRespaldo.isEmpty()){
+            System.out.println(colaRespaldo.poll());
+        }
+    }
 
 
 
