@@ -8,23 +8,24 @@ public class App {
         GestionVuelo vuelo=new GestionVuelo();
        
         do{
-           System.out.println("1 para agregar vuelo. \n2 para modificar vuelo. \n3 para eliminar vuelo. \n4 para mostrar vuelo de salida. \n0 para salir de la aplicacion.");
-           op=leer.nextInt();
-            switch(op){
-                case 1:
-                vuelo.agregarVuelo();
-                break;
-                case 2:
-                vuelo.modificarVuelo();
-                break;
-                case 3:
-                vuelo.eliminarVuelo();
-                break;
-                case 4:
-                vuelo.mostrarVulos();
-                break;
-                default:
-                System.out.println("numero incorrecto, introduzca el numero correspondiente por favor");
+            System.out.println("1 para agregar vuelo. \n2 para modificar vuelo. \n3 para eliminar vuelo. \n4 para mostrar vuelo de salida. \n0 para salir de la aplicacion.");
+            op=leer.nextInt();
+                switch(op){
+                 case 1:
+                    vuelo.agregarVuelo();
+                     break;
+                 case 2:
+                    vuelo.modificarVuelo();
+                     break;
+                 case 3:
+                    vuelo.eliminarVuelo();
+                     break;
+                 case 4:
+                    vuelo.mostrarVulos();
+                     break;
+                 default:
+                    System.out.println("numero incorrecto, introduzca el numero correspondiente por favor");
+                     break;
 
             }
 

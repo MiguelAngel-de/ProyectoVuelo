@@ -7,11 +7,11 @@ import java.time.format.DateTimeFormatter;
 public class GestionVuelo {
     PriorityQueue<Vuelo> colaVuelo = new PriorityQueue<>();
    PriorityQueue<Vuelo> colaRespaldo = new PriorityQueue<>();
-   Vuelo vuelo;
+    Vuelo vuelo;
     Scanner leer=new Scanner(System.in);
-    int nVuelo;
-    String origenVuelo;
-    String destinoVuelo;
+   private int nVuelo;
+   private String origenVuelo;
+   private  String destinoVuelo;
     String horaSalida;
     String fechaSalida;
     public void agregarVuelo(){
@@ -42,6 +42,7 @@ public class GestionVuelo {
         LocalDateTime dateTimeModifit= LocalDateTime.of(LocalDate.parse(fechaModificar, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaModificar, DateTimeFormatter.ofPattern("HH:mm:ss")));
    
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTimeModifit ));
+        colaVuelo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTimeModifit ));
     }
     public void eliminarVuelo(){
         System.out.println("el vuelo eliminado es: "+colaVuelo.poll());
