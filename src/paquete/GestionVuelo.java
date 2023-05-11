@@ -26,8 +26,8 @@ public class GestionVuelo {
         horaSalida=leer.nextLine();
         System.out.println("introduzca la fecha(dd-MM-yyy): ");
         fechaSalida=leer.nextLine();
-        leer.nextLine();
-        LocalDateTime dateTime= LocalDateTime.of(LocalDate.parse(fechaSalida, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaSalida, DateTimeFormatter.ofPattern("HH:MM:SS")));
+       
+        LocalDateTime dateTime= LocalDateTime.of(LocalDate.parse(fechaSalida, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaSalida, DateTimeFormatter.ofPattern("HH:mm:ss")));
       
         colaVuelo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTime ));
@@ -39,9 +39,12 @@ public class GestionVuelo {
         System.out.println("introduzca la fecha(dd-MM-yyy): ");
        
         String fechaModificar=leer.nextLine();
-        LocalDateTime dateTimeModifit= LocalDateTime.of(LocalDate.parse(fechaModificar, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaModificar, DateTimeFormatter.ofPattern("HH:MM:SS")));
+        LocalDateTime dateTimeModifit= LocalDateTime.of(LocalDate.parse(fechaModificar, DateTimeFormatter.ofPattern("dd-MM-yyy")), LocalTime.parse(horaModificar, DateTimeFormatter.ofPattern("HH:mm:ss")));
    
         colaRespaldo.offer(new Vuelo(nVuelo, origenVuelo, destinoVuelo, dateTimeModifit ));
+    }
+    public void eliminarVuelo(){
+        System.out.println("el vuelo eliminado es: "+colaVuelo.poll());
     }
 
 

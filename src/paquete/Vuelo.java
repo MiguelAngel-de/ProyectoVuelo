@@ -41,9 +41,7 @@ public class Vuelo implements Comparable<Vuelo> {
           return  this. hSalida.compareTo(vuelo.getHsalida());
          
        }
-public int dateTime() {
-    return 0;
-}
+
 
 
 
